@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Gracefully ignore WebSocket / HMR connection errors in preview container
+      window.addEventListener('error', function (event) {
+        var msg = (event && (event.message || (event.error && event.error.message))) || '';
+        var src = (event && event.filename) || '';
+        if (
+          msg.includes('WebSocket') ||
+          msg.includes('@vite/client') ||
+          msg.includes('vite-hmr') ||
+          src.includes('@vite/client')
+        ) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+        }
+      }, true);
+      window.addEventListener('unhandledrejection', function (event) {
+        var reason = event && event.reason ? String(event.reason) : '';
+        if (reason.includes('WebSocket') || reason.includes('@vite/client')) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+        }
+      });
+    </script>
+    <title>The Last Green City - Eco Strategy &amp; SDG Game</title>
+    <meta name="description" content="Interactive ecological strategy and narrative adventure in Verdia, the last green sanctuary. Restore ecosystems worldwide across all 17 UN Sustainable Development Goals." />
+    <meta property="og:title" content="The Last Green City - Eco Strategy &amp; SDG Game" />
+    <meta property="og:description" content="Interactive ecological strategy and narrative adventure in Verdia, the last green sanctuary. Restore ecosystems worldwide across all 17 UN Sustainable Development Goals." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

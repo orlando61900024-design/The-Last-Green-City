@@ -1,0 +1,6 @@
+{
+  "name": "The Last Green City - Eco Strategy & SDG Game",
+  "description": "Interactive ecological strategy and narrative adventure in Verdia, the last green sanctuary. Restore ecosystems worldwide across all 17 UN Sustainable Development Goals.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
